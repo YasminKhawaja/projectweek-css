@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +45,7 @@ a {
 }
 
 .login-button {
-  margin-left: 30px; /* Pas deze waarde aan voor de gewenste afstand */
+  margin-left: 30px; /* deze waarde aanpassen voor de gewenste afstand */
   background-color: #aeaf86;
   border: 2px solid black;
   text-transform: uppercase;
@@ -64,7 +66,7 @@ nav {
 main {
   background-image: url(../photos/ddd.png);
   background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige container bedekt */
-  background-position: center; /* Centreert de afbeelding */
+  background-position: center;
   min-height: 100vh; /* Zorgt ervoor dat de container minimaal de volledige hoogte van het scherm heeft */
   max-width: 100%;
 }
@@ -90,15 +92,45 @@ main a {
   margin-top: 20px;
 }
 
+footer a {
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+}
+
 footer {
   padding-left: 10px;
   background-color: black;
+  padding-top: 5px;
+  padding-bottom: 50px;
 }
 
 footer p {
-  color: black;
-  padding-top: 5px;
-}
-footer a {
   color: white;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.linksFooter {
+  display: flex;
+  flex-direction: column;
+}
+
+.linksFooter .row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* ruimte tussen de rijen */
+}
+
+.linksFooter a {
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  margin-right: 70px; /* ruimte toevoegen tussen de links contact en r-nummer  */
+}
+
+.linksFooter .row:last-child a {
+  margin-right: 35px; /* marge van de laatste link weghalen in de laatste rij */
 }
