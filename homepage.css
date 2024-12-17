@@ -20,6 +20,39 @@ body {
 a {
   color: black;
   text-decoration: none;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.3s; /* Voeg een overgang toe */
+}
+
+nav a {
+  padding: 10px 15px;
+  position: relative;
+}
+
+/* Hover-effecten voor nav-links */
+nav a:hover {
+  color: white;
+  background-color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Onderstreepte animatie */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: black;
+  transition: width 0.3s ease;
+  -webkit-transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+  background: white;
 }
 
 .above {
@@ -55,6 +88,11 @@ a {
   border: 2px solid black;
   text-transform: uppercase;
   padding: 5px 20px;
+}
+
+.login-button:hover {
+  background-color: black;
+  color: white;
 }
 
 .nav-links {
@@ -108,6 +146,11 @@ main a {
   margin-top: 20px;
 }
 
+main a:hover {
+  background-color: black;
+  color: white;
+}
+
 footer a {
   color: white;
   font-size: 15px;
@@ -131,20 +174,21 @@ footer p {
 
 .linksFooter {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Standaard verticale stapeling */
+  gap: 20px; /* Ruimte tussen de kolommen */
 }
 
 .linksFooter .column {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 20px; /* Voeg wat ruimte toe tussen de kolommen */
+  flex-direction: column; /* Plaatst items onder elkaar */
+  gap: 10px; /* Ruimte tussen de links binnen een kolom */
 }
 
 .linksFooter a {
   color: white;
   font-size: 15px;
   font-weight: 300;
-  margin-bottom: 10px; /* Voeg wat ruimte toe tussen de links */
+  text-decoration: none;
 }
 
 @media (min-width: 800px) {
@@ -192,36 +236,80 @@ footer p {
   }
 }
 
-/* Media Queries voor grotere schermen */
+@media (min-width: 992px) {
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: end;
+    gap: 30px;
+  }
+
+  .links .login-button {
+    border-radius: 16px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .logo {
+    padding-left: 30px;
+  }
+
+  .language-switch {
+    padding-left: 40px;
+  }
+
+  h1 {
+    padding-top: 80px;
+    padding-left: 60px;
+  }
+
+  .button {
+    padding-left: 45px;
+  }
+
+  .button a {
+    padding: 10px 50px;
+  }
+
+  .above {
+    border-bottom: 1px solid white;
+  }
+}
+
+@media (min-width: 800px) {
+  .event-link::after {
+    content: "Startevent";
+    display: inline;
+  }
+
+  .event-link {
+    visibility: hidden;
+  }
+
+  .event-link::after {
+    visibility: visible;
+  }
+}
+
 @media (min-width: 800px) {
   .linksFooter {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: row; /* Plaatst de kolommen naast elkaar */
+    justify-content: space-between; /* Verspreid kolommen gelijkmatig */
   }
 
   .linksFooter .column {
-    flex: 1;
-    margin-bottom: 0;
-  }
-
-  .linksFooter .column:first-child {
-    justify-content: flex-start;
-  }
-
-  .linksFooter .column:nth-child(2) {
-    justify-content: center;
-  }
-
-  .linksFooter .column:last-child {
-    justify-content: flex-end;
-  }
-
-  .newButton {
-    display: block; /* Toon de Log in knop */
+    align-items: flex-start; /* Links uitlijnen binnen kolommen */
   }
 }
 
 /* Verberg de Log in knop standaard */
 .newButton {
   display: none;
+}
+
+@media (min-width: 800px) {
+  footer .newButton {
+    display: block !important; /* Forceer de knop zichtbaar te maken */
+  }
 }
