@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 
 * {
   margin: 0;
@@ -40,16 +40,25 @@ a {
   padding-right: 40px;
 }
 
+.language-switch a {
+  margin-right: 0; /* Verwijder de marge tussen NL/ en ENG */
+}
+
 .links a:not(:last-child) {
   margin-right: 0; /* Geen ruimte tussen NL/ en ENG */
 }
 
 .login-button {
+  display: block;
   margin-left: 30px; /* deze waarde aanpassen voor de gewenste afstand */
   background-color: #aeaf86;
   border: 2px solid black;
   text-transform: uppercase;
   padding: 5px 20px;
+}
+
+.nav-links {
+  display: none; /* Verberg standaard de nav-links */
 }
 
 nav {
@@ -61,6 +70,13 @@ nav {
   border-bottom: solid black 2px;
   font-size: 12px;
   font-weight: 400;
+}
+
+/* Verberg de nav-links boven 800px */
+@media (min-width: 800px) {
+  nav {
+    display: none;
+  }
 }
 
 main {
@@ -118,19 +134,94 @@ footer p {
   flex-direction: column;
 }
 
-.linksFooter .row {
+.linksFooter .column {
   display: flex;
-  align-items: center;
-  margin-bottom: 5px; /* ruimte tussen de rijen */
+  flex-direction: column;
+  margin-bottom: 20px; /* Voeg wat ruimte toe tussen de kolommen */
 }
 
 .linksFooter a {
   color: white;
   font-size: 15px;
   font-weight: 300;
-  margin-right: 70px; /* ruimte toevoegen tussen de links contact en r-nummer  */
+  margin-bottom: 10px; /* Voeg wat ruimte toe tussen de links */
 }
 
-.linksFooter .row:last-child a {
-  margin-right: 35px; /* marge van de laatste link weghalen in de laatste rij */
+@media (min-width: 800px) {
+  .nav-links {
+    display: flex; /* Toon de nav-links boven 800px */
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Verdeel de ruimte gelijkmatig */
+    width: 100%; /* Zorg ervoor dat de links-container de volledige breedte gebruikt */
+  }
+
+  .links .language-switch {
+    order: 0; /* Zet de taalwissel als eerste */
+  }
+
+  .links a {
+    margin: 0 10px; /* Voeg wat ruimte toe tussen de links */
+  }
+
+  .links a:first-child {
+    order: 0; /* Zet NL/ als eerste */
+  }
+
+  .links .nav-links {
+    order: 1; /* Zet de nav-links in het midden */
+  }
+
+  .links .login-button {
+    order: 2; /* Zet de login-button als laatste */
+    border-radius: 8px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  h1 {
+    padding-top: 10px;
+    padding-left: 16px;
+    font-size: 180px;
+  }
+}
+
+/* Media Queries voor grotere schermen */
+@media (min-width: 800px) {
+  .linksFooter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .linksFooter .column {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .linksFooter .column:first-child {
+    justify-content: flex-start;
+  }
+
+  .linksFooter .column:nth-child(2) {
+    justify-content: center;
+  }
+
+  .linksFooter .column:last-child {
+    justify-content: flex-end;
+  }
+
+  .newButton {
+    display: block; /* Toon de Log in knop */
+  }
+}
+
+/* Verberg de Log in knop standaard */
+.newButton {
+  display: none;
 }
